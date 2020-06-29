@@ -2,16 +2,7 @@
   const call = document.querySelector.bind(document);
   const callAll = document.querySelectorAll.bind(document);
 
-  const tasks = [
-    {
-      content: "first example task for development purpose only",
-      done: true,
-    },
-    {
-      content: "second example task for development purpose only",
-      done: false,
-    },
-  ];
+  const tasks = [];
 
   const render = () => {
     let htmlString = "";
