@@ -114,7 +114,7 @@
   background-color: rgb(172, 0, 0);
   background-image: url(../images/trash.svg);
   background-repeat: no-repeat;
-  background-size: 75%;
+  background-size: 85%;
   background-position: center;
   width: 30px;
   height: 30px;
@@ -154,6 +154,10 @@
   text-align: justify;
   flex-grow: 1;
   font-size: 20px;
+}
+.section__paragraph--done {
+  text-decoration: line-through;
+  font-style: italic;
 }
 @media (max-width: 575px) {
   .section__paragraph {
