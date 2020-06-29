@@ -1,0 +1,17 @@
+html {
+    box-sizing: border-box;
+}
+
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+
+body
+{
+    font-family: "Roboto Condensed", sans-serif;
+    background-color: #c4bb91;
+}
+:root {
+    --section-bg-color: #fff;
+    --section-text-color: #141414;
+}
