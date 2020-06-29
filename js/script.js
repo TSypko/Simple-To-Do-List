@@ -52,18 +52,26 @@
     render();
   };
 
+  const taskInput = call(".js-taskNewTaskInput");
+  const taskForm = call(".js-taskForm");
+
   const taskSubmit = (event) => {
+    const newTaskContent = taskInput.value.trim();
     event.preventDefault();
-    const newTaskContent = call(".js-taskNewTaskInput").value.trim();
     if (newTaskContent === "") return;
     else addNewTask(newTaskContent);
+    taskForm.reset();
     render();
   };
 
+  const inputFocus = () => {
+    taskInput.focus();
+  };
   const init = () => {
     render();
-    const taskForm = call(".js-taskForm");
     taskForm.addEventListener("submit", taskSubmit);
+    const addTaskButton = call(".js-addButton");
+    addTaskButton.addEventListener("click", inputFocus);
   };
 
   init();
