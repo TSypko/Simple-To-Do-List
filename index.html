@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple To Do List</title>
+    <meta property="og:image" content="images/share.png">
+    <meta property="og:description" content="Simple light-weight to do list app">
+    <link rel="icon" href="images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <script defer src="js/script.js"></script>
+</head>
+
+<body>
+    <main class="main">
+        <header class="main__headerContainer">
+            <img src="images/checklogo.png" alt="logotype" class="main__image">
+            <h1 class="main__header">to do list</h1>
+        </header>
+        <section class="main__section">
+            <h2 class="section__header">add new task</h2>
+            <form class="section__form">
+                <input class="section__input js-taskInput" autofocus
+                    placeholder="e.g. watch the lesson on the Youcode course online platform"><button
+                    class="section__button section__button--addButton js-addButton">add
+                    task</button>
+            </form>
+        </section>
+        <section class="main__section">
+            <h2 class="section__header">task list</h2>
+            <ul class="section__list js-taskList">
+                <li class="section__item">
+                    <!-- example task item for development purpose only  -->
+                    <button class="section__button section__button--doneButton js-doneButton"></button>
+                    <p class="section__paragraph js-task">example task for development purpose only</p>
+                    <button class="section__button section__button--deleteButton js-deleteButton"></button>
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+
+</html>
