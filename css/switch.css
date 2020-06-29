@@ -21,14 +21,13 @@
 .switch__toggle {
   position: relative;
   display: block;
-
   padding: 5px 10px;
-  width: 70px;
+  width: 65px;
   background-color: var(--switch--color);
   background-image: var(--switch--color);
-  border: 2px solid var(--section-text-color);
   transition: all 0.5s;
   cursor: pointer;
+  box-shadow: 1px 1px 2px 1px var(--section-shadow-color);
 }
 .switch__toggle:after {
   content: "";
