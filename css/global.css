@@ -1,17 +1,30 @@
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-*, ::after, ::before {
-    box-sizing: inherit;
+*,
+::after,
+::before {
+  box-sizing: inherit;
 }
 
-body
-{
-    font-family: "Roboto Condensed", sans-serif;
-    background-color: #c4bb91;
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  background-color: var(--background);
 }
 :root {
-    --section-bg-color: #fff;
-    --section-text-color: #141414;
+  --background: #c4bb91;
+  --section-bg-color: #fff;
+  --section-text-color: #141414;
+  --section-shadow-color: #555;
+  --switch--color: hsl(0, 0%, 100%);
+  --svg-image--color: brightness(110%) invert(0%);
+}
+[theme="night"] {
+  --background: #1a1a1a;
+  --section-bg-color: #2a3a41;
+  --section-text-color: rgb(255, 255, 255);
+  --section-shadow-color: rgb(156, 156, 156);
+  --svg-image--color: brightness(0%) invert(100%);
+  --switch--color: linear-gradient(to right, var(--section-bg-color), var(--section-text-color));
 }

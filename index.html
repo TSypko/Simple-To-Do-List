@@ -12,6 +12,7 @@
         integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/switch.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap"
         rel="stylesheet">
     <script defer src="js/script.js"></script>
@@ -19,8 +20,14 @@
 
 <body>
     <main class="main">
+        <div class="main__switchContainer main__switchContainer--flex">
+            <label for="switch" class="switch__label">Night Mode</label>
+            <input class="js-switch" type="checkbox" id="switch">
+            <label class="switch__toggle" for="switch"></label>
+          </div>
         <header class="main__headerContainer">
-            <img src="images/checklogo.png" alt="logotype" class="main__image">
+            
+            <img src="images/checklogo--2.svg" alt="logotype" class="main__image">
             <h1 class="main__header">to do list</h1>
         </header>
         <section class="main__section">

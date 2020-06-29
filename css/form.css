@@ -16,7 +16,7 @@
   width: 100%;
   padding: 20px;
   margin: 10px 0px;
-  box-shadow: 1px 1px 2px 1px #555;
+  box-shadow: 1px 1px 2px 1px var(--section-shadow-color);
 }
 .main__header {
   text-transform: capitalize;
@@ -32,6 +32,8 @@
 .main__image {
   align-self: center;
   margin: 10px;
+  width: 70px;
+  filter: var(--svg-image--color);
 }
 @media (max-width: 767px) {
   .main__image {
@@ -44,7 +46,7 @@
   width: 100%;
   padding: 20px;
   margin: 10px 0px;
-  box-shadow: 1px 1px 2px 1px #555;
+  box-shadow: 1px 1px 2px 1px var(--section-shadow-color);
 }
 .section__header {
   text-transform: uppercase;

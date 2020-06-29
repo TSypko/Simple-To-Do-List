@@ -58,11 +58,27 @@
   const inputFocus = () => {
     taskInput.focus();
   };
-  const init = () => {
-    render();
+
+  const nightMode = () => {
+    const body = call("body");
+    const checkbox = call(".js-switch");
+    if (checkbox.checked === true) {
+      body.removeAttribute("theme");
+    } else {
+      body.setAttribute("theme", "night");
+    }
+  };
+
+  const listenersBind = () => {
     taskForm.addEventListener("submit", taskSubmit);
     const addTaskButton = call(".js-addButton");
     addTaskButton.addEventListener("click", inputFocus);
+    const switchToggle = call(".switch__toggle");
+    switchToggle.addEventListener("click", nightMode);
+  };
+  const init = () => {
+    render();
+    listenersBind();
   };
 
   init();
