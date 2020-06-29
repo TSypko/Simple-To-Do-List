@@ -13,15 +13,13 @@
     },
   ];
 
-  const doneTaskButton = call(".js-doneButton");
-  const deleteTaskButton = call(".js-deleteButton");
-  const addTaskButton = call(".js-addButton");
-
   const render = () => {
     let htmlString = "";
     for (const task of tasks)
       htmlString += `<li class="section__item">
-    <button class="section__button section__button--doneButton js-doneButton"></button>
+    <button class="section__button section__button--doneButton ${
+      task.done ? "section__button--doneButtonToggled" : ""
+    } js-doneButton"></button>
     <p class="section__paragraph ${
       task.done ? "section__paragraph--done" : ""
     } js-task">${task.content}</p>
@@ -33,6 +31,10 @@
     removeButtons.forEach((removeButton, index) => {
       removeButton.addEventListener("click", () => removeTask(index));
     });
+    const toggleDoneButtons = callAll(".js-doneButton");
+    toggleDoneButtons.forEach((toggleDoneButton, index) => {
+      toggleDoneButton.addEventListener("click", () => setDoneTask(index));
+    });
   };
 
   const addNewTask = (newTaskContent) => {
@@ -42,6 +44,11 @@
   };
   const removeTask = (taskIndex) => {
     tasks.splice(taskIndex, 1);
+    render();
+  };
+
+  const setDoneTask = (taskIndex) => {
+    tasks[taskIndex].done = !tasks[taskIndex].done;
     render();
   };
 
@@ -57,7 +64,6 @@
     render();
     const taskForm = call(".js-taskForm");
     taskForm.addEventListener("submit", taskSubmit);
- 
   };
 
   init();
