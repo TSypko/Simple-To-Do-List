@@ -1,6 +1,6 @@
 
 ![ToDoList-Logo](https://raw.githubusercontent.com/TSypko/Simple-To-Do-List/master/images/share-mini.png)
-# SIMPLE CURRENCY EXCHANGE
+# SIMPLE TO DO LIST APP
 ### LIVE LINK: [https://tsypko.github.io/Simple-To-Do-List/](https://tsypko.github.io/Simple-To-Do-List/)
  v. 0.1 beta
 ### DESCRIPTION
