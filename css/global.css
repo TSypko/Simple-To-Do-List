@@ -18,6 +18,8 @@ body {
   --section-bg-color: #fff;
   --section-text-color: #141414;
   --section-shadow-color: #555;
+  --doneButton--color: rgb(0, 172, 29);
+  --removeButton--color: rgb(172, 0, 0);;
   --switch--color: hsl(0, 0%, 100%);
   --svg-image--color: brightness(100%) invert(0%);
 }
