@@ -31,6 +31,7 @@
   const addNewTask = (newTaskContent) => {
     tasks.push({
       content: newTaskContent,
+      done: false,
     });
   };
   const removeTask = (taskIndex) => {
@@ -59,6 +60,22 @@
     taskInput.focus();
   };
 
+  const removeAllTasks = () => {
+    tasks.splice(0, tasks.length);
+    render();
+  };
+
+  const checkTask = (task) => {
+    return task.done === true;
+  };
+  const setAllDoneTask = () => {
+    for (const task of tasks)
+      if (task.done === false) {
+        task.done = true;
+      } else if (tasks.every(checkTask)) task.done = false;
+    render();
+  };
+
   const nightMode = () => {
     const body = call("body");
     const checkbox = call(".js-switch");
@@ -75,6 +92,10 @@
     addTaskButton.addEventListener("click", inputFocus);
     const switchToggle = call(".switch__toggle");
     switchToggle.addEventListener("click", nightMode);
+    const removeAllButton = call(".js-removeAllButton");
+    removeAllButton.addEventListener("click", removeAllTasks);
+    const doneAllButton = call(".js-doneAllButton");
+    doneAllButton.addEventListener("click", setAllDoneTask);
   };
   const init = () => {
     render();
