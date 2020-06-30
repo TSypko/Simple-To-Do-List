@@ -33,3 +33,7 @@
   background-color: var(--removeButton--color);
   border-radius: 5px;
 }
+.footer__button--doneAllButton:active,
+.footer__button--removeAllButton:active {
+  transform: scale(0.9);
+}
