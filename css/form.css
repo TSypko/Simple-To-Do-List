@@ -87,6 +87,11 @@
   padding: 10px 10px;
   margin-left: 10px;
 }
+@media (max-width: 575px) {
+  .section__button--addButton {
+    margin-left: 0px;
+  }
+}
 .section__button--addButton:hover {
   background-color: var(--section-bg-color);
   color: var(--section-text-color);
