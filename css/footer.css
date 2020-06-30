@@ -9,29 +9,27 @@
   box-shadow: 1px 1px 2px 1px var(--section-shadow-color);
 }
 @media (max-width: 359px) {
-    .footer {
-      flex-wrap: wrap;
-    }
+  .footer {
+    flex-wrap: wrap;
   }
+}
 .footer__button {
-    text-transform: uppercase;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.4s;
-    transition: color 0.4s;
-    padding: 10px 20px;
-    color: #ffffff;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.4s;
+  transition: color 0.4s;
+  padding: 10px 20px;
+  color: #ffffff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 10px;
 }
 .footer__button--doneAllButton {
-    background-color: var(--doneButton--color);
-    border-radius: 5px;
-
+  background-color: var(--doneButton--color);
+  border-radius: 5px;
 }
 .footer__button--removeAllButton {
-    background-color: var(--removeButton--color);
-    border-radius: 5px;
-
+  background-color: var(--removeButton--color);
+  border-radius: 5px;
 }

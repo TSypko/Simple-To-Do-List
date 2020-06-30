@@ -11,7 +11,7 @@ html {
 body {
   font-family: "Roboto Condensed", sans-serif;
   background-color: var(--background);
-  margin: 10px
+  margin: 10px;
 }
 :root {
   --background: #c4bb91;
@@ -19,7 +19,7 @@ body {
   --section-text-color: #141414;
   --section-shadow-color: #555;
   --doneButton--color: rgb(0, 172, 29);
-  --removeButton--color: rgb(172, 0, 0);;
+  --removeButton--color: rgb(172, 0, 0);
   --switch--color: hsl(0, 0%, 100%);
   --svg-image--color: brightness(100%) invert(0%);
 }
