@@ -17,15 +17,7 @@
     <button class="section__button section__button--deleteButton js-deleteButton"></button>
     </li>`;
     call(".js-taskList").innerHTML = htmlString;
-
-    const removeButtons = callAll(".js-deleteButton");
-    removeButtons.forEach((removeButton, index) => {
-      removeButton.addEventListener("click", () => removeTask(index));
-    });
-    const toggleDoneButtons = callAll(".js-doneButton");
-    toggleDoneButtons.forEach((toggleDoneButton, index) => {
-      toggleDoneButton.addEventListener("click", () => setDoneTask(index));
-    });
+    bindListeners();
   };
 
   const addNewTask = (newTaskContent) => {
@@ -86,7 +78,14 @@
     }
   };
 
-  const listenersBind = () => {
+  const bindListeners = () => {
+    removeButtons.forEach((removeButton, index) => {
+      removeButton.addEventListener("click", () => removeTask(index));
+    });
+    const toggleDoneButtons = callAll(".js-doneButton");
+    toggleDoneButtons.forEach((toggleDoneButton, index) => {
+      toggleDoneButton.addEventListener("click", () => setDoneTask(index));
+    });
     taskForm.addEventListener("submit", taskSubmit);
     const addTaskButton = call(".js-addButton");
     addTaskButton.addEventListener("click", inputFocus);
@@ -96,10 +95,10 @@
     removeAllButton.addEventListener("click", removeAllTasks);
     const doneAllButton = call(".js-doneAllButton");
     doneAllButton.addEventListener("click", setAllDoneTask);
+    const removeButtons = callAll(".js-deleteButton");
   };
   const init = () => {
     render();
-    listenersBind();
   };
 
   init();
