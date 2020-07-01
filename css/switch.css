@@ -1,18 +1,18 @@
-.main__switchContainer--flex {
+.switch__container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
 }
-#switch {
+.switch {
   display: none;
 }
-#switch:checked + .switch__toggle::after {
+.switch:checked + .switch__toggle::after {
   transform: translatex(0);
 }
 
-.main__switchContainer label:first-of-type {
+.switch__label {
   font-weight: 700;
   color: var(--section-text-color);
   margin-right: 10px;
