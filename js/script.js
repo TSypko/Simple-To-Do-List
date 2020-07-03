@@ -79,6 +79,7 @@
   };
 
   const bindListeners = () => {
+    const removeButtons = callAll(".js-deleteButton");
     removeButtons.forEach((removeButton, index) => {
       removeButton.addEventListener("click", () => removeTask(index));
     });
@@ -95,10 +96,10 @@
     removeAllButton.addEventListener("click", removeAllTasks);
     const doneAllButton = call(".js-doneAllButton");
     doneAllButton.addEventListener("click", setAllDoneTask);
-    const removeButtons = callAll(".js-deleteButton");
   };
   const init = () => {
     render();
+    bindListeners();
   };
 
   init();
