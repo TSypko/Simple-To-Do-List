@@ -16,7 +16,7 @@
 
     if (hideDoneTasks === false) {
       for (const task of tasks)
-        htmlString += `<li class="section__item  }">
+        htmlString += `<li class="section__item">
     <button class="section__button section__button--doneButton ${
       task.done ? "section__button--doneButtonToggled" : ""
     } js-doneButton"></button>
@@ -44,11 +44,11 @@
   const doneAllButton = call(".js-doneAllButton");
   const hideDoneButton = call(".js-hideDoneButton");
 
-  const isTaskDone = (task) => {
-    return task.done === true;
+  const isTaskDone = ({ done }) => {
+    return done === true;
   };
-  const isTaskUndone = (task) => {
-    return task.done === false;
+  const isTaskUndone = ({ done }) => {
+    return done === false;
   };
 
   const renderButtons = () => {
@@ -79,7 +79,19 @@
   };
 
   const setDoneTask = (taskIndex) => {
-    tasks[taskIndex].done = !tasks[taskIndex].done;
+    if (tasks[taskIndex].done === false) {
+      tasks = [
+        ...tasks.slice(0, taskIndex),
+        { ...tasks[taskIndex], done: true },
+        ...tasks.slice(taskIndex + 1),
+      ];
+    } else {
+      tasks = [
+        ...tasks.slice(0, taskIndex),
+        { ...tasks[taskIndex], done: false },
+        ...tasks.slice(taskIndex + 1),
+      ];
+    }
     render();
   };
 
@@ -111,8 +123,10 @@
     taskInput.focus();
   };
 
-  const removeAllTasks = () => {
-    tasks.splice(0, tasks.length);
+  const removeAllTasks = (taskIndex) => {
+    tasks = [
+      ...tasks.slice(0, taskIndex),
+    ];
     render();
   };
 
