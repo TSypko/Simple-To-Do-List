@@ -8,7 +8,7 @@
   margin: 10px 0px;
   box-shadow: 1px 1px 2px 1px var(--section-shadow-color);
 }
-@media (max-width: 359px) {
+@media (max-width: 459px) {
   .footer {
     flex-wrap: wrap;
   }
@@ -29,11 +29,21 @@
   background-color: var(--doneButton--color);
   border-radius: 5px;
 }
+.footer__button--hideDoneButton {
+  background-color: var(--doneButton--color);
+  border-radius: 5px;
+}
+.footer__button--hideDoneButton:disabled {
+  background-color: #ccc;
+  border-radius: 5px;
+  cursor: default;
+}
 .footer__button--removeAllButton {
   background-color: var(--removeButton--color);
   border-radius: 5px;
 }
 .footer__button--doneAllButton:active,
+.footer__button--hideDoneButton:active,
 .footer__button--removeAllButton:active {
   transform: scale(0.9);
 }
