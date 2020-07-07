@@ -34,13 +34,13 @@
   background-color: var(--greenButton--color);
   border-radius: 5px;
 }
+.footer__button--doneAllButton:hover {
+  background-color: var(--greenButtonLighter--color);
+}
 .footer__button--doneAllButton:disabled {
   background-color: #ccc;
   border-radius: 5px;
   cursor: default;
-}
-.footer__button--doneAllButton:hover {
-  background-color: var(--greenButtonLighter--color);
 }
 .footer__button--hideDoneButton {
   background-color: var(--greenButton--color);
