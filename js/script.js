@@ -1,3 +1,4 @@
+{
 const call = document.querySelector.bind(document);
 const callAll = document.querySelectorAll.bind(document);
 
@@ -69,10 +70,7 @@ const renderButtons = () => {
 };
 
 const addNewTask = (newTaskContent) => {
-  tasks.push({
-    content: newTaskContent,
-    done: false,
-  });
+  tasks = [...tasks, { content: newTaskContent, done: false }];
 };
 const removeTask = (taskIndex) => {
   tasks.splice(taskIndex, 1);
@@ -155,3 +153,5 @@ const init = () => {
 };
 
 init();
+
+}
