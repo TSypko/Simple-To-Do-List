@@ -73,6 +73,7 @@
   border: none;
   transition: background-color 0.4s;
   transition: color 0.4s;
+  transition: transform 0.1s;
 }
 @media (max-width: 575px) {
   .section__button {
@@ -151,6 +152,9 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--section-text-color);
+}
+.section__item--hidden {
+  display: none;
 }
 @media (max-width: 175px) {
   .section__item {

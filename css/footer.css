@@ -27,6 +27,7 @@
   font-weight: bold;
   letter-spacing: 1px;
   margin: 10px;
+  transition: transform 0.1s;
 }
 .footer__button--doneAllButton {
   background-color: var(--doneButton--color);
