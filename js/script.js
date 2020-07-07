@@ -3,7 +3,6 @@
   const callAll = document.querySelectorAll.bind(document);
 
   let tasks = [];
-  let updatedTasks = [];
   let hideDoneTasks = false;
 
   const render = () => {
@@ -16,7 +15,7 @@
     let htmlString = "";
 
     if (hideDoneTasks === false) {
-      for (const task of updatedTasks)
+      for (const task of tasks)
         htmlString += `<li class="section__item  }">
     <button class="section__button section__button--doneButton ${
       task.done ? "section__button--doneButtonToggled" : ""
@@ -27,8 +26,8 @@
     <button class="section__button section__button--deleteButton js-deleteButton"></button>
     </li>`;
     } else {
-      const undoneTask = updatedTasks.filter(isTaskUndone);
-      for (const task of undoneTask)
+      const undoneTasks = tasks.filter(isTaskUndone);
+      for (const task of undoneTasks)
         htmlString += `<li class="section__item">
     <button class="section__button section__button--doneButton ${
       task.done ? "section__button--doneButtonToggled" : ""
@@ -55,39 +54,32 @@
   const renderButtons = () => {
     const footer = call(".footer");
 
-    updatedTasks.length > 0
+    tasks.length > 0
       ? footer.classList.add("footer--showButtons")
       : footer.classList.remove("footer--showButtons");
 
-    const doneTasks = updatedTasks.every(isTaskDone);
+    const doneTasks = tasks.every(isTaskDone);
     doneTasks
       ? doneAllButton.setAttribute("disabled", "")
       : doneAllButton.removeAttribute("disabled", "");
 
-    const undoneTasks = updatedTasks.every(isTaskUndone);
+    const undoneTasks = tasks.every(isTaskUndone);
     undoneTasks
       ? hideDoneButton.setAttribute("disabled", "")
       : hideDoneButton.removeAttribute("disabled", "");
   };
 
   const addNewTask = (newTaskContent) => {
-    updatedTasks = [
-      ...tasks,
-      ...updatedTasks,
-      { content: newTaskContent, done: false },
-    ];
+    tasks = [...tasks, { content: newTaskContent, done: false }];
     render();
   };
   const removeTask = (taskIndex) => {
-    updatedTasks = [
-      ...updatedTasks.slice(0, taskIndex),
-      ...updatedTasks.slice(taskIndex + 1),
-    ];
+    tasks = [...tasks.slice(0, taskIndex), ...tasks.slice(taskIndex + 1)];
     render();
   };
 
   const setDoneTask = (taskIndex) => {
-    updatedTasks[taskIndex].done = !updatedTasks[taskIndex].done;
+    tasks[taskIndex].done = !tasks[taskIndex].done;
     render();
   };
 
@@ -106,8 +98,11 @@
   const taskSubmit = (event) => {
     const newTaskContent = taskInput.value.trim();
     event.preventDefault();
-    if (newTaskContent === "") return;
-    else addNewTask(newTaskContent);
+    if (newTaskContent === "") {
+      return;
+    } else {
+      addNewTask(newTaskContent);
+    }
     taskForm.reset();
     render();
   };
@@ -117,12 +112,12 @@
   };
 
   const removeAllTasks = () => {
-    updatedTasks.splice(0, updatedTasks.length);
+    tasks.splice(0, tasks.length);
     render();
   };
 
   const setAllDoneTask = () => {
-    for (const task of updatedTasks) task.done = true;
+    for (const task of tasks) task.done = true;
     render();
   };
 
