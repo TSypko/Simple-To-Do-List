@@ -25,7 +25,7 @@ const renderTask = () => {
     <button class="section__button section__button--deleteButton js-deleteButton"></button>
     </li>`;
   } else {
-    let undoneTask = tasks.filter(isTaskUndone);
+    const undoneTask = tasks.filter(isTaskUndone);
     for (const task of undoneTask)
       htmlString += `<li class="section__item">
     <button class="section__button section__button--doneButton ${
