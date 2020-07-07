@@ -1,9 +1,16 @@
 const call = document.querySelector.bind(document);
 const callAll = document.querySelectorAll.bind(document);
 
-const tasks = [];
+let tasks = [];
+let hideDoneTasks = false;
 
 const render = () => {
+  renderTask();
+  bindListeners();
+  showAdditionalButtons();
+};
+
+const renderTask = () => {
   let htmlString = "";
   for (const task of tasks)
     htmlString += `<li class="section__item">
@@ -16,14 +23,25 @@ const render = () => {
     <button class="section__button section__button--deleteButton js-deleteButton"></button>
     </li>`;
   call(".js-taskList").innerHTML = htmlString;
-  bindListeners();
-  showAdditionalButtons();
+};
+
+const doneAllButton = call(".js-doneAllButton");
+
+const checkTask = (task) => {
+  return task.done === true;
 };
 
 const showAdditionalButtons = () => {
+  const footer = call(".footer");
+  
   tasks.length > 0
-    ? call(".footer").classList.add("footer--showButtons")
-    : call(".footer").classList.remove("footer--showButtons");
+    ? footer.classList.add("footer--showButtons")
+    : footer.classList.remove("footer--showButtons");
+
+  let doneTasks = tasks.every(checkTask);
+  doneTasks
+    ? doneAllButton.setAttribute("disabled", "")
+    : doneAllButton.removeAttribute("disabled", "");
 };
 
 const addNewTask = (newTaskContent) => {
@@ -63,14 +81,8 @@ const removeAllTasks = () => {
   render();
 };
 
-const checkTask = (task) => {
-  return task.done === true;
-};
 const setAllDoneTask = () => {
-  for (const task of tasks)
-    if (task.done === false) {
-      task.done = true;
-    } else if (tasks.every(checkTask)) task.done = false;
+  for (const task of tasks) task.done = true;
   render();
 };
 
@@ -100,8 +112,9 @@ const bindListeners = () => {
   switchToggle.addEventListener("click", nightMode);
   const removeAllButton = call(".js-removeAllButton");
   removeAllButton.addEventListener("click", removeAllTasks);
-  const doneAllButton = call(".js-doneAllButton");
   doneAllButton.addEventListener("click", setAllDoneTask);
+  // const hideDoneButton = call(".js-hideDoneButton");
+  // hideDoneButton.addEventListener("click", areTasksDone);
 };
 const init = () => {
   render();

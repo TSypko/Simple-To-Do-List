@@ -33,14 +33,14 @@
   background-color: var(--doneButton--color);
   border-radius: 5px;
 }
-.footer__button--hideDoneButton {
-  background-color: var(--doneButton--color);
-  border-radius: 5px;
-}
-.footer__button--hideDoneButton:disabled {
+.footer__button--doneAllButton:disabled {
   background-color: #ccc;
   border-radius: 5px;
   cursor: default;
+}
+.footer__button--hideDoneButton {
+  background-color: var(--doneButton--color);
+  border-radius: 5px;
 }
 .footer__button--removeAllButton {
   background-color: var(--removeButton--color);
