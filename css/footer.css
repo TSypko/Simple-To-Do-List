@@ -1,5 +1,5 @@
 .footer {
-  display: flex;
+  display: none;
   justify-content: space-evenly;
   background-color: var(--section-bg-color);
   color: var(--section-text-color);
@@ -7,6 +7,9 @@
   padding: 20px;
   margin: 10px 0px;
   box-shadow: 1px 1px 2px 1px var(--section-shadow-color);
+}
+.footer--showButtons {
+  display: flex;
 }
 @media (max-width: 459px) {
   .footer {
