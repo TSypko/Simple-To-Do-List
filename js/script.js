@@ -7,7 +7,7 @@ let hideDoneTasks = false;
 const render = () => {
   renderTask();
   bindListeners();
-  showAdditionalButtons();
+  renderButtons();
 };
 
 const renderTask = () => {
@@ -31,9 +31,9 @@ const checkTask = (task) => {
   return task.done === true;
 };
 
-const showAdditionalButtons = () => {
+const renderButtons = () => {
   const footer = call(".footer");
-  
+
   tasks.length > 0
     ? footer.classList.add("footer--showButtons")
     : footer.classList.remove("footer--showButtons");
