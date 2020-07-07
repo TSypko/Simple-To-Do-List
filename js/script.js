@@ -41,6 +41,7 @@ const renderTask = () => {
 };
 
 const doneAllButton = call(".js-doneAllButton");
+const hideButton = call(".js-hideDoneButton");
 
 const isTaskDone = (task) => {
   return task.done === true;
@@ -56,10 +57,15 @@ const renderButtons = () => {
     ? footer.classList.add("footer--showButtons")
     : footer.classList.remove("footer--showButtons");
 
-  let doneTasks = tasks.every(isTaskDone);
+  const doneTasks = tasks.every(isTaskDone);
   doneTasks
     ? doneAllButton.setAttribute("disabled", "")
     : doneAllButton.removeAttribute("disabled", "");
+
+  const undoneTasks = tasks.every(isTaskUndone);
+  undoneTasks
+    ? hideButton.setAttribute("disabled", "")
+    : hideButton.removeAttribute("disabled", "");
 };
 
 const addNewTask = (newTaskContent) => {
@@ -79,11 +85,11 @@ const setDoneTask = (taskIndex) => {
 };
 
 const hideDoneTask = () => {
-  const hideButton = call(".js-hideDoneButton");
   hideDoneTasks = !hideDoneTasks;
   hideDoneTasks
     ? (hideButton.innerHTML = "show done")
     : (hideButton.innerHTML = "hide done");
+
   render();
 };
 
