@@ -18,8 +18,10 @@ body {
   --section-bg-color: #fff;
   --section-text-color: #141414;
   --section-shadow-color: #555;
-  --doneButton--color: rgb(0, 172, 29);
-  --removeButton--color: rgb(172, 0, 0);
+  --greenButton--color: rgb(0, 172, 29);
+  --greenButtonLighter--color: rgb(0, 218, 36);
+  --redButton--color: rgb(172, 0, 0);
+  --redButtonLighter--color: hsl(0, 100%, 45%);
   --switch--color: hsl(0, 0%, 100%);
   --svg-image--color: brightness(100%) invert(0%);
 }

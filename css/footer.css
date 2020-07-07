@@ -28,9 +28,10 @@
   letter-spacing: 1px;
   margin: 10px;
   transition: transform 0.1s;
+  transition: background-color 0.4s;
 }
 .footer__button--doneAllButton {
-  background-color: var(--doneButton--color);
+  background-color: var(--greenButton--color);
   border-radius: 5px;
 }
 .footer__button--doneAllButton:disabled {
@@ -38,13 +39,27 @@
   border-radius: 5px;
   cursor: default;
 }
+.footer__button--doneAllButton:hover {
+  background-color: var(--greenButtonLighter--color);
+}
 .footer__button--hideDoneButton {
-  background-color: var(--doneButton--color);
+  background-color: var(--greenButton--color);
   border-radius: 5px;
 }
-.footer__button--removeAllButton {
-  background-color: var(--removeButton--color);
+.footer__button--hideDoneButton:hover {
+  background-color: var(--greenButtonLighter--color);
+}
+.footer__button--hideDoneButton:disabled {
+  background-color: #ccc;
   border-radius: 5px;
+  cursor: default;
+}
+.footer__button--removeAllButton {
+  background-color: var(--redButton--color);
+  border-radius: 5px;
+}
+.footer__button--removeAllButton:hover {
+  background-color: var(--redButtonLighter--color);
 }
 .footer__button--doneAllButton:active,
 .footer__button--hideDoneButton:active,
