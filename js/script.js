@@ -27,7 +27,7 @@ const renderTask = () => {
 
 const doneAllButton = call(".js-doneAllButton");
 
-const checkTask = (task) => {
+const isTaskDone = (task) => {
   return task.done === true;
 };
 
@@ -38,7 +38,7 @@ const renderButtons = () => {
     ? footer.classList.add("footer--showButtons")
     : footer.classList.remove("footer--showButtons");
 
-  let doneTasks = tasks.every(checkTask);
+  let doneTasks = tasks.every(isTaskDone);
   doneTasks
     ? doneAllButton.setAttribute("disabled", "")
     : doneAllButton.removeAttribute("disabled", "");
