@@ -1,7 +1,10 @@
 
-![ToDoList-Logo](https://raw.githubusercontent.com/TSypko/Simple-To-Do-List/master/images/share-mini.png)
+<p align="center"> <img src="images/share-mini.png" />
+</p>
+
 # SIMPLE TO DO LIST APP
 ### LIVE LINK: [https://tsypko.github.io/Simple-To-Do-List/](https://tsypko.github.io/Simple-To-Do-List/)
+
  v. 0.2 beta
 ### DESCRIPTION
 Simple, lightweight To Do List app created during ,*,Become A Front End Developer"* course provided by *Youcode Academy*.
