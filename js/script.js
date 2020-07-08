@@ -29,8 +29,15 @@
   const renderButtons = () => {
     let htmlFooterString = "";
     if (tasks.length > 0) {
-      htmlFooterString += ` <button class="footer__button footer__button--doneAllButton js-doneAllButton">set all as done</button>
-      <button class="footer__button footer__button--hideDoneButton js-hideDoneButton">hide done</button>
+      const undoneTasks = tasks.every(isTaskUndone);
+      const doneTasks = tasks.every(isTaskDone);
+      htmlFooterString += `
+      <button  ${
+        doneTasks ? "disabled" : ""
+      } class="footer__button footer__button--doneAllButton js-doneAllButton">set all as done</button>
+      <button ${
+        undoneTasks ? "disabled" : ""
+      } class="footer__button footer__button--hideDoneButton js-hideDoneButton">hide done</button>
       <button class="footer__button footer__button--removeAllButton js-removeAllButton">remove all tasks</button>`;
     } else {
       htmlFooterString += "";
@@ -130,16 +137,6 @@
     if (tasks.length > 0) {
       const doneAllButton = document.querySelector(".js-doneAllButton");
       const hideDoneButton = document.querySelector(".js-hideDoneButton");
-      const doneTasks = tasks.every(isTaskDone);
-      doneTasks
-        ? doneAllButton.setAttribute("disabled", "")
-        : doneAllButton.removeAttribute("disabled", "");
-
-      const undoneTasks = tasks.every(isTaskUndone);
-      undoneTasks
-        ? hideDoneButton.setAttribute("disabled", "")
-        : hideDoneButton.removeAttribute("disabled", "");
-      hideDoneButton.innerHTML = hideDoneTasks ? "show done" : "hide done";
       const removeAllButton = document.querySelector(".js-removeAllButton");
       removeAllButton.addEventListener("click", removeAllTasks);
       doneAllButton.addEventListener("click", setAllTaskDone);
