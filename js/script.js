@@ -5,7 +5,7 @@
   const render = () => {
     renderTask();
     renderButtons();
-    bindListeners();
+    bindMainListeners();
     bindFooterButtonsListeners();
   };
 
@@ -110,7 +110,7 @@
     }
   };
 
-  const bindListeners = () => {
+  const bindMainListeners = () => {
     const removeButtons = document.querySelectorAll(".js-deleteButton");
     removeButtons.forEach((removeButton, index) => {
       removeButton.addEventListener("click", () => removeTask(index));
