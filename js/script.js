@@ -110,7 +110,7 @@
     render();
   };
 
-  const setAllDoneTask = () => {
+  const setAllTaskDone = () => {
     tasks = [...tasks];
     tasks.forEach((task) => {
       task.done = true;
@@ -144,7 +144,7 @@
     switchToggle.addEventListener("click", nightMode);
     const removeAllButton = document.querySelector(".js-removeAllButton");
     removeAllButton.addEventListener("click", removeAllTasks);
-    doneAllButton.addEventListener("click", setAllDoneTask);
+    doneAllButton.addEventListener("click", setAllTaskDone);
     hideDoneButton.addEventListener("click", hideDoneTask);
   };
   const init = () => {
