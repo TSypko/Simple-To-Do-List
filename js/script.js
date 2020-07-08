@@ -27,8 +27,10 @@
   };
 
   const renderButtons = () => {
+    const footer = document.querySelector(".js-footer")
     let htmlFooterString = "";
     if (tasks.length > 0) {
+      footer.classList.add("footer--open")
       const undoneTasks = tasks.every(isTaskUndone);
       const doneTasks = tasks.every(isTaskDone);
       htmlFooterString += `
@@ -42,7 +44,7 @@
     } else {
       htmlFooterString += "";
     }
-    document.querySelector(".js-footer").innerHTML = htmlFooterString;
+    footer.innerHTML = htmlFooterString;
   };
 
   const addNewTask = (newTaskContent) => {
