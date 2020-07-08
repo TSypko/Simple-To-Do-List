@@ -26,13 +26,6 @@
     document.querySelector(".js-taskList").innerHTML = htmlString;
   };
 
-  const isTaskDone = ({ done }) => {
-    return done === true;
-  };
-  const isTaskUndone = ({ done }) => {
-    return done === false;
-  };
-
   const renderButtons = () => {
     let htmlFooterString = "";
     if (tasks.length > 0) {
@@ -61,6 +54,13 @@
       ...tasks.slice(taskIndex + 1),
     ];
     render();
+  };
+
+  const isTaskDone = ({ done }) => {
+    return done === true;
+  };
+  const isTaskUndone = ({ done }) => {
+    return done === false;
   };
 
   const hideDoneTask = () => {
@@ -125,6 +125,7 @@
     const switchToggle = document.querySelector(".switch__toggle");
     switchToggle.addEventListener("click", nightMode);
   };
+
   const bindFooterButtonsListeners = () => {
     if (tasks.length > 0) {
       const doneAllButton = document.querySelector(".js-doneAllButton");
@@ -145,6 +146,7 @@
       hideDoneButton.addEventListener("click", hideDoneTask);
     } else return;
   };
+
   const init = () => {
     render();
   };
