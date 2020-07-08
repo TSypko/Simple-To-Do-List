@@ -113,7 +113,10 @@
   };
 
   const setAllDoneTask = () => {
-    for (const task of tasks) task.done = true;
+    tasks = [...tasks];
+    tasks.forEach((task) => {
+      task.done = true;
+    })
     render();
   };
 
