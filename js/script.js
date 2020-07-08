@@ -4,8 +4,9 @@
 
   const render = () => {
     renderTask();
-    bindListeners();
     renderButtons();
+    bindListeners();
+    bindFooterButtonsListeners();
   };
 
   const renderTask = () => {
@@ -25,9 +26,6 @@
     document.querySelector(".js-taskList").innerHTML = htmlString;
   };
 
-  const doneAllButton = document.querySelector(".js-doneAllButton");
-  const hideDoneButton = document.querySelector(".js-hideDoneButton");
-
   const isTaskDone = ({ done }) => {
     return done === true;
   };
@@ -36,23 +34,15 @@
   };
 
   const renderButtons = () => {
-    const footer = document.querySelector(".footer");
-
-    tasks.length > 0
-      ? footer.classList.add("footer--showButtons")
-      : footer.classList.remove("footer--showButtons");
-
-    const doneTasks = tasks.every(isTaskDone);
-    doneTasks
-      ? doneAllButton.setAttribute("disabled", "")
-      : doneAllButton.removeAttribute("disabled", "");
-
-    const undoneTasks = tasks.every(isTaskUndone);
-    undoneTasks
-      ? hideDoneButton.setAttribute("disabled", "")
-      : hideDoneButton.removeAttribute("disabled", "");
-
-    hideDoneButton.innerHTML = hideDoneTasks ? "show done" : "hide done";
+    let htmlFooterString = "";
+    if (tasks.length > 0) {
+      htmlFooterString += ` <button class="footer__button footer__button--doneAllButton js-doneAllButton">set all as done</button>
+      <button class="footer__button footer__button--hideDoneButton js-hideDoneButton">hide done</button>
+      <button class="footer__button footer__button--removeAllButton js-removeAllButton">remove all tasks</button>`;
+    } else {
+      htmlFooterString += "";
+    }
+    document.querySelector(".js-footer").innerHTML = htmlFooterString;
   };
 
   const addNewTask = (newTaskContent) => {
@@ -134,10 +124,26 @@
     addTaskButton.addEventListener("click", inputFocus);
     const switchToggle = document.querySelector(".switch__toggle");
     switchToggle.addEventListener("click", nightMode);
-    const removeAllButton = document.querySelector(".js-removeAllButton");
-    removeAllButton.addEventListener("click", removeAllTasks);
-    doneAllButton.addEventListener("click", setAllTaskDone);
-    hideDoneButton.addEventListener("click", hideDoneTask);
+  };
+  const bindFooterButtonsListeners = () => {
+    if (tasks.length > 0) {
+      const doneAllButton = document.querySelector(".js-doneAllButton");
+      const hideDoneButton = document.querySelector(".js-hideDoneButton");
+      const doneTasks = tasks.every(isTaskDone);
+      doneTasks
+        ? doneAllButton.setAttribute("disabled", "")
+        : doneAllButton.removeAttribute("disabled", "");
+
+      const undoneTasks = tasks.every(isTaskUndone);
+      undoneTasks
+        ? hideDoneButton.setAttribute("disabled", "")
+        : hideDoneButton.removeAttribute("disabled", "");
+      hideDoneButton.innerHTML = hideDoneTasks ? "show done" : "hide done";
+      const removeAllButton = document.querySelector(".js-removeAllButton");
+      removeAllButton.addEventListener("click", removeAllTasks);
+      doneAllButton.addEventListener("click", setAllTaskDone);
+      hideDoneButton.addEventListener("click", hideDoneTask);
+    } else return;
   };
   const init = () => {
     render();
