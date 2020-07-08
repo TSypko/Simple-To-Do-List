@@ -52,9 +52,7 @@
       ? hideDoneButton.setAttribute("disabled", "")
       : hideDoneButton.removeAttribute("disabled", "");
 
-    hideDoneTasks
-      ? (hideDoneButton.innerHTML = "show done")
-      : (hideDoneButton.innerHTML = "hide done");
+    hideDoneButton.innerHTML = hideDoneTasks ? "show done" : "hide done";
   };
 
   const addNewTask = (newTaskContent) => {
@@ -116,7 +114,7 @@
     tasks = [...tasks];
     tasks.forEach((task) => {
       task.done = true;
-    })
+    });
     render();
   };
 
