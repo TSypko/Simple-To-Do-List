@@ -13,10 +13,10 @@
 
   const renderTask = () => {
     let htmlString = "";
-
-    if (hideDoneTasks === false) {
-      for (const task of tasks)
-        htmlString += `<li class="section__item">
+    for (const task of tasks)
+      htmlString += `<li class="section__item ${
+        task.done && hideDoneTasks === true ? "section__item--hidden" : ""
+      }" >
     <button class="section__button section__button--doneButton ${
       task.done ? "section__button--doneButtonToggled" : ""
     } js-doneButton"></button>
@@ -25,19 +25,6 @@
     } js-task">${task.content}</p>
     <button class="section__button section__button--deleteButton js-deleteButton"></button>
     </li>`;
-    } else {
-      const undoneTasks = tasks.filter(isTaskUndone);
-      for (const task of undoneTasks)
-        htmlString += `<li class="section__item">
-    <button class="section__button section__button--doneButton ${
-      task.done ? "section__button--doneButtonToggled" : ""
-    } js-doneButton"></button>
-    <p class="section__paragraph ${
-      task.done ? "section__paragraph--done" : ""
-    } js-task">${task.content}</p>
-    <button class="section__button section__button--deleteButton js-deleteButton"></button>
-    </li>`;
-    }
     call(".js-taskList").innerHTML = htmlString;
   };
 
@@ -67,6 +54,10 @@
     undoneTasks
       ? hideDoneButton.setAttribute("disabled", "")
       : hideDoneButton.removeAttribute("disabled", "");
+
+    hideDoneTasks
+      ? (hideDoneButton.innerHTML = "show done")
+      : (hideDoneButton.innerHTML = "hide done");
   };
 
   const addNewTask = (newTaskContent) => {
@@ -97,10 +88,6 @@
 
   const hideDoneTask = () => {
     hideDoneTasks = !hideDoneTasks;
-    hideDoneTasks
-      ? (hideDoneButton.innerHTML = "show done")
-      : (hideDoneButton.innerHTML = "hide done");
-
     render();
   };
 
@@ -124,9 +111,7 @@
   };
 
   const removeAllTasks = (taskIndex) => {
-    tasks = [
-      ...tasks.slice(0, taskIndex),
-    ];
+    tasks = [...tasks.slice(0, taskIndex)];
     render();
   };
 

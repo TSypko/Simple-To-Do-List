@@ -166,6 +166,9 @@
     flex-wrap: wrap;
   }
 }
+.section__item--hidden {
+  display: none;
+}
 .section__paragraph {
   font-weight: 400;
   max-width: 100%;
