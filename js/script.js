@@ -1,7 +1,4 @@
 {
-  const call = document.querySelector.bind(document);
-  const callAll = document.querySelectorAll.bind(document);
-
   let tasks = [];
   let hideDoneTasks = false;
 
@@ -25,11 +22,11 @@
     } js-task">${task.content}</p>
     <button class="section__button section__button--deleteButton js-deleteButton"></button>
     </li>`;
-    call(".js-taskList").innerHTML = htmlString;
+    document.querySelector(".js-taskList").innerHTML = htmlString;
   };
 
-  const doneAllButton = call(".js-doneAllButton");
-  const hideDoneButton = call(".js-hideDoneButton");
+  const doneAllButton = document.querySelector(".js-doneAllButton");
+  const hideDoneButton = document.querySelector(".js-hideDoneButton");
 
   const isTaskDone = ({ done }) => {
     return done === true;
@@ -39,7 +36,7 @@
   };
 
   const renderButtons = () => {
-    const footer = call(".footer");
+    const footer = document.querySelector(".footer");
 
     tasks.length > 0
       ? footer.classList.add("footer--showButtons")
@@ -91,8 +88,8 @@
     render();
   };
 
-  const taskInput = call(".js-taskNewTaskInput");
-  const taskForm = call(".js-taskForm");
+  const taskInput = document.querySelector(".js-taskNewTaskInput");
+  const taskForm = document.querySelector(".js-taskForm");
 
   const taskSubmit = (event) => {
     const newTaskContent = taskInput.value.trim();
@@ -121,8 +118,8 @@
   };
 
   const nightMode = () => {
-    const body = call("body");
-    const checkbox = call(".js-switch");
+    const body = document.querySelector("body");
+    const checkbox = document.querySelector(".js-switch");
     if (checkbox.checked === true) {
       body.removeAttribute("theme");
     } else {
@@ -131,20 +128,20 @@
   };
 
   const bindListeners = () => {
-    const removeButtons = callAll(".js-deleteButton");
+    const removeButtons = document.querySelectorAll(".js-deleteButton");
     removeButtons.forEach((removeButton, index) => {
       removeButton.addEventListener("click", () => removeTask(index));
     });
-    const toggleDoneButtons = callAll(".js-doneButton");
+    const toggleDoneButtons = document.querySelectorAll(".js-doneButton");
     toggleDoneButtons.forEach((toggleDoneButton, index) => {
       toggleDoneButton.addEventListener("click", () => setDoneTask(index));
     });
     taskForm.addEventListener("submit", taskSubmit);
-    const addTaskButton = call(".js-addButton");
+    const addTaskButton = document.querySelector(".js-addButton");
     addTaskButton.addEventListener("click", inputFocus);
-    const switchToggle = call(".switch__toggle");
+    const switchToggle = document.querySelector(".switch__toggle");
     switchToggle.addEventListener("click", nightMode);
-    const removeAllButton = call(".js-removeAllButton");
+    const removeAllButton = document.querySelector(".js-removeAllButton");
     removeAllButton.addEventListener("click", removeAllTasks);
     doneAllButton.addEventListener("click", setAllDoneTask);
     hideDoneButton.addEventListener("click", hideDoneTask);
