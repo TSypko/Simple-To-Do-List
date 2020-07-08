@@ -65,19 +65,11 @@
   };
 
   const setDoneTask = (taskIndex) => {
-    if (tasks[taskIndex].done === false) {
-      tasks = [
-        ...tasks.slice(0, taskIndex),
-        { ...tasks[taskIndex], done: true },
-        ...tasks.slice(taskIndex + 1),
-      ];
-    } else {
-      tasks = [
-        ...tasks.slice(0, taskIndex),
-        { ...tasks[taskIndex], done: false },
-        ...tasks.slice(taskIndex + 1),
-      ];
-    }
+    tasks = [
+      ...tasks.slice(0, taskIndex),
+      { ...tasks[taskIndex], done: tasks[taskIndex].done ? false : true },
+      ...tasks.slice(taskIndex + 1),
+    ];
     render();
   };
 
