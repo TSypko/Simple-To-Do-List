@@ -149,7 +149,6 @@
   };
   const init = () => {
     render();
-    bindListeners();
   };
 
   init();
