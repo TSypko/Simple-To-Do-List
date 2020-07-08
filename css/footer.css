@@ -1,7 +1,5 @@
-.footer {
-  display: flex;
-}
 .footer--open {
+  display: flex;
   justify-content: space-evenly;
   background-color: var(--section-bg-color);
   color: var(--section-text-color);

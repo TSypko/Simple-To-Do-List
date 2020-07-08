@@ -42,6 +42,7 @@
       } class="footer__button footer__button--hideDoneButton js-hideDoneButton">hide done</button>
       <button class="footer__button footer__button--removeAllButton js-removeAllButton">remove all tasks</button>`;
     } else {
+      footer.classList.remove("footer--open")
       htmlFooterString += "";
     }
     footer.innerHTML = htmlFooterString;
