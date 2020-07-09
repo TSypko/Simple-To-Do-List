@@ -27,7 +27,7 @@
   };
 
   const renderButtons = () => {
-    const footer = document.querySelector(".js-footer");
+    const footer = document.querySelector(".js-footer__section");
     let htmlFooterString = "";
     if (tasks.length > 0) {
       footer.classList.add("footer--open");

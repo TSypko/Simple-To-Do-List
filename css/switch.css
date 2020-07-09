@@ -3,7 +3,8 @@
   justify-content: flex-end;
   align-items: center;
   flex-wrap: wrap;
-  width: 100%;
+  margin: 10px auto;
+  max-width: 800px;
 }
 .switch {
   display: none;
@@ -40,5 +41,5 @@
   transform: translatex(130%);
 }
 .switch__toggle:hover {
-  background-image: linear-gradient(to right,#2a3a41, #c4bb91);
+  background-image: linear-gradient(to right, #2a3a41, #c4bb91);
 }
