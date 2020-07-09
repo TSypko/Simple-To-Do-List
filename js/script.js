@@ -4,7 +4,7 @@
 
   const render = () => {
     renderTask();
-    renderButtons();
+    renderFooterButtonsSection();
     bindMainListeners();
     bindFooterButtonsListeners();
   };
@@ -12,37 +12,47 @@
   const renderTask = () => {
     let htmlString = "";
     for (const task of tasks)
-      htmlString += `<li class="section__item ${
-        task.done && hideDoneTasks === true ? "section__item--hidden" : ""
-      }" >
-    <button class="section__button section__button--doneButton ${
-      task.done ? "section__button--doneButtonToggled" : ""
-    } js-doneButton"></button>
-    <p class="section__paragraph ${
-      task.done ? "section__paragraph--done" : ""
-    } js-task">${task.content}</p>
-    <button class="section__button section__button--deleteButton js-deleteButton"></button>
-    </li>`;
+      htmlString += `
+        <li class="section__item 
+              ${
+                task.done && hideDoneTasks === true
+                  ? "section__item--hidden"
+                  : ""
+              }">
+
+          <button class="section__button section__button--doneButton
+              ${
+                task.done ? " section__button--doneButtonToggled" : ""
+              }js-doneButton"></button>
+
+          <p class="section__paragraph ${
+            task.done ? "section__paragraph--done" : ""
+          } js-task">
+              ${task.content}</p>
+
+          <button class="section__button section__button--deleteButton js-deleteButton"></button>
+          
+        </li>
+      `;
     document.querySelector(".js-taskList").innerHTML = htmlString;
   };
 
-  const renderButtons = () => {
-    const footer = document.querySelector(".js-footer__section");
+  const renderFooterButtonsSection = () => {
+    const footer = document.querySelector(".js-footer");
     let htmlFooterString = "";
-    if (tasks.length > 0) {
-      footer.classList.add("footer--open");
+    if (tasks.length) {
       const undoneTasks = tasks.every(isTaskUndone);
       const doneTasks = tasks.every(isTaskDone);
       htmlFooterString += `
-      <button  ${
-        doneTasks ? "disabled" : ""
-      } class="footer__button footer__button--doneAllButton js-doneAllButton">set all as done</button>
-      <button ${
-        undoneTasks ? "disabled" : ""
-      } class="footer__button footer__button--hideDoneButton js-hideDoneButton">hide done</button>
-      <button class="footer__button footer__button--removeAllButton js-removeAllButton">remove all tasks</button>`;
+        <section class="footer__section">
+          <button ${doneTasks ? "disabled" : ""} 
+              class="footer__button footer__button--doneAllButton js-doneAllButton">set all as done</button>
+          <button ${undoneTasks ? "disabled" : ""}
+              class="footer__button footer__button--hideDoneButton js-hideDoneButton">hide done</button>
+          <button class="footer__button footer__button--removeAllButton js-removeAllButton">remove all tasks</button>
+        </section>
+      `;
     } else {
-      footer.classList.remove("footer--open");
       htmlFooterString += "";
     }
     footer.innerHTML = htmlFooterString;
