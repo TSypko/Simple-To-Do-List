@@ -23,7 +23,7 @@
             <button class="section__button section__button--deleteButton js-deleteButton"></button>
         </li>
       `;
-    document.querySelector(".js-taskList").innerHTML = tasks.map(taskToHTML);
+    document.querySelector(".js-taskList").innerHTML = tasks.map(taskToHTML).join("");
   };
 
   const renderFooterButtonsSection = () => {
