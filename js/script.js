@@ -10,18 +10,19 @@
   };
 
   const renderTasks = () => {
-    const taskToHTML = (task) =>
-      `<li class="section__item ${
-        task.done && hideDoneTasks ? "section__item--hidden" : ""
-      }">
-          <button class="section__button section__button--doneButton ${
-            task.done ? " section__button--doneButtonToggled" : ""
-          } js-doneButton"></button>
-          <p class="section__paragraph ${
-            task.done ? "section__paragraph--done" : ""
-          } js-task">${task.content}</p>
-          <button class="section__button section__button--deleteButton js-deleteButton"></button>
-        </li>`;
+    const taskToHTML = (task) => `
+        <li class="section__item ${
+          task.done && hideDoneTasks ? "section__item--hidden" : ""
+        }">
+            <button class="section__button section__button--doneButton ${
+              task.done ? " section__button--doneButtonToggled" : ""
+            } js-doneButton"></button>
+            <p class="section__paragraph ${
+              task.done ? "section__paragraph--done" : ""
+            } js-task">${task.content}</p>
+            <button class="section__button section__button--deleteButton js-deleteButton"></button>
+        </li>
+      `;
     document.querySelector(".js-taskList").innerHTML = tasks.map(taskToHTML);
   };
 
