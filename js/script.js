@@ -130,7 +130,7 @@
     taskForm.addEventListener("submit", taskSubmit);
     const addTaskButton = document.querySelector(".js-addButton");
     addTaskButton.addEventListener("click", inputFocus);
-    const switchToggle = document.querySelector(".switch__toggle");
+    const switchToggle = document.querySelector(".js-switch__toggle");
     switchToggle.addEventListener("click", nightMode);
   };
 
