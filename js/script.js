@@ -12,7 +12,7 @@
   const renderTasks = () => {
     const taskToHTML = (task) =>
       `<li class="section__item ${
-        task.done && hideDoneTasks === true ? "section__item--hidden" : ""
+        task.done && hideDoneTasks ? "section__item--hidden" : ""
       }">
           <button class="section__button section__button--doneButton ${
             task.done ? " section__button--doneButtonToggled" : ""
@@ -47,7 +47,7 @@
   };
 
   const addNewTask = (newTaskContent) => {
-    tasks = [...tasks, { content: newTaskContent, done: false }];
+    tasks = [...tasks, { content: newTaskContent }];
     render();
   };
   const removeTask = (taskIndex) => {
@@ -58,7 +58,7 @@
   const setTaskDone = (taskIndex) => {
     tasks = [
       ...tasks.slice(0, taskIndex),
-      { ...tasks[taskIndex], done: tasks[taskIndex].done ? false : true },
+      { ...tasks[taskIndex], done: !tasks[taskIndex].done },
       ...tasks.slice(taskIndex + 1),
     ];
     render();
@@ -108,7 +108,7 @@
   const nightMode = () => {
     const body = document.querySelector("body");
     const checkbox = document.querySelector(".js-switch");
-    if (checkbox.checked === true) {
+    if (checkbox.checked) {
       body.removeAttribute("theme");
     } else {
       body.setAttribute("theme", "night");
