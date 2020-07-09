@@ -120,10 +120,12 @@
     removeButtons.forEach((removeButton, index) => {
       removeButton.addEventListener("click", () => removeTask(index));
     });
+
     const toggleDoneButtons = document.querySelectorAll(".js-doneButton");
     toggleDoneButtons.forEach((toggleDoneButton, index) => {
       toggleDoneButton.addEventListener("click", () => setDoneTask(index));
     });
+
     taskForm.addEventListener("submit", taskSubmit);
     const addTaskButton = document.querySelector(".js-addButton");
     addTaskButton.addEventListener("click", inputFocus);
@@ -132,14 +134,20 @@
   };
 
   const bindFooterButtonsListeners = () => {
-    if (tasks.length > 0) {
-      const doneAllButton = document.querySelector(".js-doneAllButton");
-      const hideDoneButton = document.querySelector(".js-hideDoneButton");
-      const removeAllButton = document.querySelector(".js-removeAllButton");
-      removeAllButton.addEventListener("click", removeAllTasks);
+    const doneAllButton = document.querySelector(".js-doneAllButton");
+    if (tasks.length) {
       doneAllButton.addEventListener("click", setAllTasksDone);
+    }
+
+    const hideDoneButton = document.querySelector(".js-hideDoneButton");
+    if (tasks.length) {
       hideDoneButton.addEventListener("click", hideDoneTask);
-    } else return;
+    }
+
+    const removeAllButton = document.querySelector(".js-removeAllButton");
+    if (tasks.length) {
+      removeAllButton.addEventListener("click", removeAllTasks);
+    }
   };
 
   const init = () => {
