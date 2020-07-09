@@ -27,10 +27,10 @@
   };
 
   const renderButtons = () => {
-    const footer = document.querySelector(".js-footer")
+    const footer = document.querySelector(".js-footer");
     let htmlFooterString = "";
     if (tasks.length > 0) {
-      footer.classList.add("footer--open")
+      footer.classList.add("footer--open");
       const undoneTasks = tasks.every(isTaskUndone);
       const doneTasks = tasks.every(isTaskDone);
       htmlFooterString += `
@@ -42,7 +42,7 @@
       } class="footer__button footer__button--hideDoneButton js-hideDoneButton">hide done</button>
       <button class="footer__button footer__button--removeAllButton js-removeAllButton">remove all tasks</button>`;
     } else {
-      footer.classList.remove("footer--open")
+      footer.classList.remove("footer--open");
       htmlFooterString += "";
     }
     footer.innerHTML = htmlFooterString;
@@ -102,11 +102,8 @@
     render();
   };
 
-  const setAllTaskDone = () => {
-    tasks = [...tasks];
-    tasks.forEach((task) => {
-      task.done = true;
-    });
+  const setAllTasksDone = () => {
+    tasks = tasks.map((task) => ({ ...task, done: true }));
     render();
   };
 
@@ -142,7 +139,7 @@
       const hideDoneButton = document.querySelector(".js-hideDoneButton");
       const removeAllButton = document.querySelector(".js-removeAllButton");
       removeAllButton.addEventListener("click", removeAllTasks);
-      doneAllButton.addEventListener("click", setAllTaskDone);
+      doneAllButton.addEventListener("click", setAllTasksDone);
       hideDoneButton.addEventListener("click", hideDoneTask);
     } else return;
   };
