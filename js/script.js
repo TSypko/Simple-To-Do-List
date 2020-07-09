@@ -55,7 +55,7 @@
     render();
   };
 
-  const setDoneTask = (taskIndex) => {
+  const setTaskDone = (taskIndex) => {
     tasks = [
       ...tasks.slice(0, taskIndex),
       { ...tasks[taskIndex], done: tasks[taskIndex].done ? false : true },
@@ -123,7 +123,7 @@
 
     const toggleDoneButtons = document.querySelectorAll(".js-doneButton");
     toggleDoneButtons.forEach((toggleDoneButton, index) => {
-      toggleDoneButton.addEventListener("click", () => setDoneTask(index));
+      toggleDoneButton.addEventListener("click", () => setTaskDone(index));
     });
 
     taskForm.addEventListener("submit", taskSubmit);
