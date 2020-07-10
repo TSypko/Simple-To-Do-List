@@ -136,17 +136,17 @@
 
   const bindFooterButtonsListeners = () => {
     const doneAllButton = document.querySelector(".js-doneAllButton");
-    if (tasks.length) {
+    if (doneAllButton) {
       doneAllButton.addEventListener("click", setAllTasksDone);
     }
 
     const hideDoneButton = document.querySelector(".js-hideDoneButton");
-    if (tasks.length) {
+    if (hideDoneButton) {
       hideDoneButton.addEventListener("click", hideDoneTask);
     }
 
     const removeAllButton = document.querySelector(".js-removeAllButton");
-    if (tasks.length) {
+    if (removeAllButton) {
       removeAllButton.addEventListener("click", removeAllTasks);
     }
   };
