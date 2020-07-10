@@ -1,11 +1,11 @@
 .header {
   margin: 10px auto;
   max-width: 800px;
-}
-.header__section {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+}
+.header__section {
   background-color: var(--section-bg-color);
   color: var(--section-text-color);
   width: 100%;

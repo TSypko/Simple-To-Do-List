@@ -34,7 +34,7 @@ const renderFooterButtonsSection = () => {
     const undoneTasks = tasks.every(isTaskUndone);
     const doneTasks = tasks.every(isTaskDone);
     htmlFooterString += `
-        <section class="footer__section">
+        <section class="section section--footer">
           <button ${doneTasks ? "disabled" : ""} 
               class="footer__button footer__button--doneAllButton js-doneAllButton">set all as done</button>
           <button ${undoneTasks ? "disabled" : ""}
