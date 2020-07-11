@@ -6,19 +6,23 @@
   margin: 10px 0px;
   box-shadow: 1px 1px 2px 1px var(--section-shadow-color);
 }
+
 .section--header {
   display: flex;
   justify-content: center;
 }
+
 .section--footer {
   display: flex;
   justify-content: space-evenly;
 }
+
 @media (max-width: 459px) {
   .section--footer {
     flex-wrap: wrap;
   }
 }
+
 .section__header {
   text-transform: uppercase;
   font-size: 20px;
@@ -26,30 +30,37 @@
   border-bottom: 2px solid;
   border-color: var(--section-text-color);
 }
+
 .section__form {
   display: flex;
 }
+
 @media (max-width: 575px) {
   .section__form {
     flex-direction: column;
   }
 }
+
 .section__input {
   width: 100%;
   padding: 10px 20px;
 }
+
 .section__button {
   text-transform: uppercase;
   cursor: pointer;
   border: none;
   transition: color 0.4s;
   transition: transform 0.1s;
+  min-width: 30px;
 }
+
 @media (max-width: 575px) {
   .section__button {
     margin-top: 10px;
   }
 }
+
 .section__button--addButton {
   min-width: max-content;
   background-color: var(--section-text-color);
@@ -59,11 +70,13 @@
   margin-left: 10px;
   transition: background-color 0.4s;
 }
+
 @media (max-width: 575px) {
   .section__button--addButton {
     margin-left: 0px;
   }
 }
+
 .section__button--addButton:hover {
   background-color: var(--section-bg-color);
   color: var(--section-text-color);
@@ -71,10 +84,12 @@
   font-weight: bold;
   padding-left: 7px;
 }
+
 .section__button--addButton:active {
   border: 1px solid var(--section-text-color);
   transform: scale(0.9);
 }
+
 .section__button--doneButton {
   background-color: var(--greenButton--color);
   border-radius: 5px;
@@ -83,18 +98,22 @@
   height: 30px;
   transition: background-color 0.4s;
 }
+
 .section__button--doneButton:hover {
   background-color: var(--greenButtonLighter--color);
 }
+
 .section__button--doneButtonToggled {
   background-image: url(../images/checked.svg);
   background-repeat: no-repeat;
   background-size: 75%;
   background-position: center;
 }
+
 .section__button--doneButton:active {
   transform: scale(0.85);
 }
+
 .section__button--deleteButton {
   background-color: var(--redButton--color);
   background-image: url(../images/trash.svg);
@@ -107,12 +126,15 @@
   margin-left: 15px;
   transition: background-color 0.4s;
 }
+
 .section__button--deleteButton:hover {
   background-color: var(--redButtonLighter--color);
 }
+
 .section__button--deleteButton:active {
   transform: scale(0.85);
 }
+
 @media (max-width: 575px) {
   .section__button--doneButton::before {
     padding: 5px 10px;
@@ -121,25 +143,30 @@
     padding: 5px 10px;
   }
 }
+
 .section__list {
   list-style: none;
   padding-left: 0px;
   background-color: var(--section-bg-color);
 }
+
 .section__item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--section-text-color);
 }
+
 @media (max-width: 175px) {
   .section__item {
     flex-wrap: wrap;
   }
 }
+
 .section__item--hidden {
   display: none;
 }
+
 .section__paragraph {
   font-weight: 400;
   max-width: 100%;
@@ -147,14 +174,16 @@
   flex-grow: 1;
   font-size: 20px;
   overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-all;
-    hyphens: auto;
+  word-wrap: break-word;
+  word-break: break-all;
+  hyphens: auto;
 }
+
 .section__paragraph--done {
   text-decoration: line-through;
   font-style: italic;
 }
+
 @media (max-width: 575px) {
   .section__paragraph {
     font-size: 16px;
