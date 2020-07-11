@@ -14,6 +14,11 @@
   display: flex;
   justify-content: space-evenly;
 }
+@media (max-width: 459px) {
+  .section--footer {
+    flex-wrap: wrap;
+  }
+}
 .section__header {
   text-transform: uppercase;
   font-size: 20px;
@@ -141,6 +146,10 @@
   text-align: justify;
   flex-grow: 1;
   font-size: 20px;
+  overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    hyphens: auto;
 }
 .section__paragraph--done {
   text-decoration: line-through;

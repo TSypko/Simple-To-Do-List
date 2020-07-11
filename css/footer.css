@@ -2,11 +2,6 @@
   margin: 10px auto;
   max-width: 800px;
 }
-@media (max-width: 459px) {
-  .footer {
-    flex-wrap: wrap;
-  }
-}
 .footer__button {
   text-transform: uppercase;
   cursor: pointer;
